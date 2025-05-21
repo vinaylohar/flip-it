@@ -10,7 +10,6 @@ import { submitHighScoreThunk, type HighScoreData } from '../../services/apiServ
 import { useDispatch, useSelector } from 'react-redux';
 import { getWinnerScore } from '../../selectors/leaderboardSelector';
 import type { AppDispatch } from '../../store/store';
-import Header from '../common/Header';
 
 interface CardData {
   id: number;

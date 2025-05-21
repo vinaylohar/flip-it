@@ -1,19 +1,39 @@
-import React from 'react';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import React, { useEffect } from 'react';
+import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from 'firebase/auth';
 import { auth } from '../../firebaseConfig';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import { FcGoogle } from 'react-icons/fc';
 import { FaBrain } from 'react-icons/fa';
+import { Utils } from '../../config/utils';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
+
+    useEffect(() => {
+  
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // Save the user ID to localStorage
+          Utils.setUsernameInLocalStorage(user.displayName || '');
+          // Save playerFBId to localStorage
+          Utils.setPlayerFBIdInLocalStorage(user.uid);
+          // Redirect to the dashboard after login
+          navigate('/dashboard'); // Redirect to the game page after login
+        } else {
+          // If no user is logged in, clear the name and UID
+          Utils.clearUserSessionFromLocalStorage();
+        }
+      });
+  
+      // Cleanup the subscription on component unmount
+      return () => unsubscribe();
+    }, []);
 
   const handleGoogleSignIn = async () => {
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
-      navigate('/dashboard'); // Redirect to the game page after login
     } catch (error) {
       console.error('Error during sign-in:', error);
     }

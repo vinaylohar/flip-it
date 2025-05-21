@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaSignOutAlt } from 'react-icons/fa'; // Import the sign-out icon
 import { useNavigate } from 'react-router-dom';
 import './Header.css';
@@ -11,7 +11,14 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ title }) => {
   const navigate = useNavigate();
-  const userName = Utils.getUsernameFromLocalStorage() || 'Guest'; // Get the username from local storage or default to 'Guest'
+  const [userName, setUserName] = useState<string>('');
+
+  useEffect(() => {
+    // Fetch the userName from localStorage
+    const storedUserName = localStorage.getItem('username') || 'Guest';
+    // const storedUserName = Utils.getUsernameFromLocalStorage() || 'Guest';
+    setUserName(storedUserName);
+  }, []);
 
   const handleSignOut = () => {
     const confirmSignOut = window.confirm('Are you sure you want to sign out?');

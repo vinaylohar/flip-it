@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../firebaseConfig';
 import { useDispatch, useSelector } from 'react-redux';
 import './Dashboard.css';
 import type { AppDispatch } from '../../store/store';
@@ -22,25 +20,11 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
 
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // If the user is logged in, set their display name and UID
-        setUserName(user.displayName);
-        // Save the user ID to localStorage
-        Utils.setUsernameInLocalStorage(user.displayName || '');
-        // Save playerFBId to localStorage
-        Utils.setPlayerFBIdInLocalStorage(user.uid);
+    setUserName(Utils.getUsernameFromLocalStorage() || 'Guest'); // Get the username from local storage or default to 'Guest'
 
-        // Fetch leaderboard data
-        dispatch(fetchLeaderboardThunk(selectedVariation));
-      } else {
-        // If no user is logged in, clear the name and UID
-        Utils.clearUserSessionFromLocalStorage();
-      }
-    });
+    // Fetch leaderboard data
+    dispatch(fetchLeaderboardThunk(selectedVariation));
 
-    // Cleanup the subscription on component unmount
-    return () => unsubscribe();
   }, [selectedVariation]);
 
   const handleVariationChange = (variation: GameVariation) => {
@@ -59,7 +43,7 @@ const Dashboard: React.FC = () => {
         <div className="game-options">
           <h3>Choose a Game Variation:</h3>
           <div className="variation-buttons">
-           
+
             <button
               className={setSelectedVariationStyle(GameVariation.EASY)}
               onClick={() => handleVariationChange(GameVariation.EASY)}
