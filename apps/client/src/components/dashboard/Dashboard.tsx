@@ -36,12 +36,18 @@ const Dashboard: React.FC = () => {
     navigate(`/game?variation=${selectedVariation}`); // Navigate to the game page without reloading
   };
 
+  const getInitials = (name: string) => name.charAt(0).toUpperCase();
+
   return (
     <div className="dashboard-container">
       <div className="left-column">
-        <h2>Welcome, {userName || 'Guest'}!</h2>
+        {/* <h2>Welcome, {userName || 'Guest'}!</h2> */}
         <div className="game-options">
-          <h3>Choose a Game Variation:</h3>
+          <img
+            src="../public/brain_train.png"
+            className="brain-train-image"
+          />
+          {/* <h3 className="variations-title">Select difficulty</h3> */}
           <div className="variation-buttons">
 
             <button
@@ -69,33 +75,36 @@ const Dashboard: React.FC = () => {
         </button>      </div>
       <div className="right-column">
 
-        <table className="leaderboard-table">
-          <thead>
-            <tr className="leaderboard-title">
-              <h3>Leaderboard</h3>
-            </tr>
-          </thead>
-          <thead>
-            <tr className="leaderboard-header">
-              <th>Rank</th>
-              <th>User Name</th>
-              <th>Score</th>
-            </tr>
-          </thead>
-          <tbody className="leaderboard-rows">
-            {leaderboard.map((entry) => (
-              <tr
-                key={entry.rank}
-                className={`leaderboard-row ${entry.isCurrentPlayer ? 'highlight' : ''
-                  }`}
-              >
-                <td>{entry.rank}</td>
-                <td>{entry.username}</td>
-                <td>{entry.score}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="leaderboard-container">
+          <table className="leaderboard-table">
+            <tbody>
+              {leaderboard.map((player, index) => {
+                // Determine the class for medals and current player
+                let playerClass = "";
+                if (index === 0) {
+                  playerClass += " gold-medal";
+                } else if (index === 1) {
+                  playerClass += " silver-medal";
+                } else if (index === 2) {
+                  playerClass += " bronze-medal";
+                }
+                return (
+                  <tr className={player.username === userName? "current-player" : ""} key={index}>
+                    <td className="column-1">{index < 3 && <span className={playerClass.trim()}></span>}
+                      {index >= 3 && <span className="player-rank">{player.rank}</span>}
+                    </td>
+                    <td>
+                      <span className="player-initial">
+                        {getInitials(player.username)}
+                      </span>
+                      {player.username}
+                    </td>
+                    <td className="column-3">{player.score}</td>
+                  </tr>)
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

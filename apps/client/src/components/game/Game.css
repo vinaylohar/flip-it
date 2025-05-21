@@ -135,3 +135,7 @@ html {
     text-align: center;
     margin: 0 auto; /* Center the countdown horizontally */
 }
+
+.countdown p {
+   margin: 5px;
+}

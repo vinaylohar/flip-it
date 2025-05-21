@@ -253,7 +253,7 @@ const Game: React.FC = () => {
         <div className="countdown">
           <p>Game starts in: {countdown}</p>
         </div>
-      )}
+      )}  
       {isGameStarted && (
         <div className="game-info">
           <div className="info-item">

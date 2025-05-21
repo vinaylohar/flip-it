@@ -4,7 +4,7 @@
   flex-wrap: wrap; /* Allow items to wrap to the next line */
   justify-content: space-between;
   gap: 20px;
-  padding: 20px;
+  padding: 0 20px;
   height: calc(100vh - 85px); /* Ensure the container takes up the full viewport height */
   box-sizing: border-box; /* Include padding in height calculation */
 }
@@ -15,7 +15,6 @@
   min-width: 300px; /* Ensure a minimum width for the left column */
   max-height: 100%; /* Prevent overflow */
   overflow-y: auto; /* Add vertical scroll bar if content overflows */
-  padding-right: 10px; /* Add padding to avoid overlap with scroll bar */
   display: flex;
   flex-direction: column;
   justify-content: center; /* Center items vertically */
@@ -28,7 +27,6 @@
   flex: 1;
   min-width: 300px; /* Ensure a minimum width for the right column */
   max-height: 100%; /* Prevent overflow */
-  padding-right: 10px; /* Add padding to avoid overlap with scroll bar */
   display: flex;
   flex-direction: column;
   justify-content: center; /* Center items vertically */
@@ -40,7 +38,7 @@
   flex-wrap: wrap; /* Allow buttons to wrap if needed */
   gap: 10px; /* Add spacing between buttons */
   justify-content: center; /* Center the buttons */
-  margin-top: 15px;
+  /* margin-top: 15px; */
 }
 
 /* Styling for each variation button */
@@ -83,31 +81,26 @@
 }
 
 .play-now-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px; /* Add spacing between the icon and text */
-  padding: 12px 24px;
-  background-color: #28a745; /* Green background */
-  color: white;
-  font-size: 18px;
+  background: linear-gradient(90deg, #f1c40f, #f39c12); /* Golden gradient */
+  color: #ffffff; /* White text for contrast */
+  font-size: 1.2rem; /* Slightly larger font size */
   font-weight: bold;
-  border: none;
-  border-radius: 8px; /* Rounded corners */
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-  margin-top: 15px;
+  padding: 10px 20px; /* Add padding for a better look */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Slightly more rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
 
 .play-now-button:hover {
-  background-color: #218838; /* Darker green on hover */
-  transform: scale(1.05); /* Slightly enlarge the button on hover */
+  background: linear-gradient(90deg, #d4ac0d, #e67e22); /* Darker golden gradient on hover */
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
 .play-now-button:active {
-  background-color: #1e7e34; /* Even darker green when clicked */
-  transform: scale(0.95); /* Slightly shrink the button when clicked */
+  background: linear-gradient(90deg, #b7950b, #ca6f1e); /* Even darker golden gradient when clicked */
+  transform: scale(0.95); /* Slight shrink effect */
 }
 
 .play-icon {
@@ -135,72 +128,122 @@
   z-index: 1; /* Ensure it stays above the rows */
 }
 
-/* Leaderboard table styling */
+/* Style for the leaderboard container with a border and title */
+.leaderboard-container {
+  border: 2px solid #4caf50; /* Green border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px 20px 10px 20px;
+  position: relative;
+  /* margin: 20px auto; */
+  max-width: 600px;
+  background-color: #ffffff; /* White background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.leaderboard-container::before {
+  content: "Leaderboard"; /* Title inside the border */
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff; /* Match the container background */
+  padding: 0 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4caf50;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Style for the leaderboard table */
 .leaderboard-table {
   width: 100%;
-  border-collapse: collapse; /* Remove gaps between table cells */
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  overflow: hidden; /* Ensure rounded corners apply to the table */
+  border-collapse: collapse; /* Remove gaps between cells */
+  text-align: left;
 }
 
-.leaderboard-header {
-  background-color: #007bff;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-}
-
-.leaderboard-header th {
-  display: table; /* Ensure rows behave like table rows */
-  width: 100%; /* Ensure rows take up the full width */
-  table-layout: fixed; /* Prevent uneven column widths */
-  text-align: center;
-}
-
-.leaderboard-rows {
-  overflow-y: auto; /* Enable vertical scrolling for the rows */
-  display: block; /* Make the rows scrollable */
-  overflow-x: hidden;
-}
-
-.leaderboard-rows tr {
-  display: table; /* Ensure rows behave like table rows */
-  width: 100%; /* Ensure rows take up the full width */
-  table-layout: fixed; /* Prevent uneven column widths */
-  text-align: center;
-}
-
-.leaderboard-row td {
+.leaderboard-table td {
   padding: 10px;
-  border-bottom: 1px solid #ccc;
-  background-color: #f9f9f9;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.leaderboard-table tr:first-child td {
+  border-top: none; /* Remove top border for the first row */
+}
+
+/* Medal styles for the top 3 players */
+.leaderboard-table .gold-medal::before {
+  content: "🥇"; /* Gold medal emoji */
+  margin-right: 5px;
+  text-align: right;
+}
+
+.leaderboard-table .silver-medal::before {
+  content: "🥈"; /* Silver medal emoji */
+  margin-right: 5px;
+  text-align: right;
+}
+
+.leaderboard-table .bronze-medal::before {
+  content: "🥉"; /* Bronze medal emoji */
+  margin-right: 5px;
+  text-align: right;
+}
+
+/* Highlight the current player */
+.current-player {
+  background-color: #ccc;
+}
+
+/* Circle initials before every player */
+.player-initial {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  background-color: #4caf50; /* Green background */
+  color: #ffffff; /* White text */
   text-align: center;
-}
-
-.leaderboard-row:last-child td {
-  border-bottom: none; /* Remove border for the last row */
-}
-
-.leaderboard-row.highlight td {
-  background-color: #ffeb3b;
   font-weight: bold;
+  margin-right: 10px;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Responsive styling for smaller screens */
-@media (max-width: 768px) {
-  .dashboard-container {
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center align the items */
-    overflow-y: auto; /* Enable vertical scrolling for the entire container */
-  }
+.variations-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4caf50;
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); */
+  text-align: center;
+  margin: 10px 0;
+  font-family: 'Poppins', sans-serif;
+}
 
-  .leaderboard-table {
-    font-size: 14px; /* Adjust font size for smaller screens */
-    text-align: center;
-  }
+.game-options {
+  margin-bottom: 10px;
+}
 
-  .leaderboard-rows {
-    max-height: 100%; 
-  }
+.brain-train-image {
+  width: 150px; /* Adjust the size of the image */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  margin: 0 auto 0px;
+}
+
+.player-rank {
+  font-weight: bold;
+  margin-right: 10px;
+  color: #555; /* Subtle gray color */
+  font-family: 'Poppins', sans-serif;
+}
+
+.column-1 {
+  width: 10px;
+  text-align: right;
+}
+
+.column-3 {
+  width: 10px;
+  text-align: right;
 }
