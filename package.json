@@ -1,0 +1,24 @@
+{
+  "name": "memory-game-task",
+  "version": "1.0.0",
+  "description": "Npm Workspace for Memory Game",
+  "scripts": {
+    "client": "npm run dev -w client",
+    "server": "npm run dev -w server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5"
+  }
+}

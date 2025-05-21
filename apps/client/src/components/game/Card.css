@@ -1,0 +1,88 @@
+.card-container {
+  position: relative;
+  /* width: 100px;
+  height: 100px; */
+  perspective: 1000px; /* Enables 3D flipping */
+}
+
+.card-hint {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #555;
+  background-color: #f0f0f0;
+  padding: 2px 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d; /* Enables 3D transformation */
+  transition: transform 0.6s; /* Smooth flipping animation */
+  cursor: pointer;
+}
+
+.card.flipped {
+  transform: rotateY(180deg); /* Flips the card */
+}
+
+.card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d; /* Enables 3D transformation for inner content */
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the back side when flipped */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(2 * 100%); /* Font size is 50% of the card's height */
+}
+
+.card-front {
+  background-color: #fff;
+  border: 2px solid #ccc;
+}
+
+.card-back {
+  background-color: #007bff;
+  color: white;
+  transform: rotateY(180deg); /* Back side is rotated */
+}
+
+.card-container.hinted {
+  animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px rgba(39, 39, 1, 0.8);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(39, 39, 1, 1);
+  }
+}
+
+.card-back.highlighted {
+  animation: highlight-bg 1s infinite alternate; /* Apply the animation */
+}
+
+@keyframes highlight-bg {
+  from {
+    background-color: #ffeb3b; /* Yellow */
+  }
+  to {
+    background-color: #ffc107; /* Darker Yellow */
+  }
+}

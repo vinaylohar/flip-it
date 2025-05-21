@@ -1,0 +1,82 @@
+.header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    /* Space out the logo/title and the sign-out icon */
+    align-items: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.header-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.header-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.signout-icon {
+    font-size: 24px;
+    /* Adjust the size of the icon */
+    color: white;
+    /* Match the header text color */
+    cursor: pointer;
+    transition: color 0.3s ease;
+    /* Push the icon to the far right */
+}
+
+.signout-icon:hover {
+    color: #ff4d4d;
+    /* Change color on hover to indicate action */
+}
+
+/* Styling for the user info */
+.user-info {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Add spacing between the icon and the username */
+}
+
+/* Styling for the user icon */
+.user-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    color: #007bff;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50%;
+    /* Make it circular */
+    text-transform: uppercase;
+    /* Ensure the initial is uppercase */
+}
+
+/* Styling for the username */
+.user-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-right: 10px;
+    max-width: 120px; /* Set a maximum width for the username */
+    white-space: nowrap; /* Prevent the text from wrapping */
+    overflow: hidden; /* Hide the overflowed text */
+    text-overflow: ellipsis; /* Add ellipsis (...) for overflowed text */
+}
