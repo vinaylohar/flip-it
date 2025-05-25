@@ -1,36 +1,19 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import Card from './Card';
-import './Game.css';
-import { GameVariation, getGameVariationLayout, PARAM_VARIATION } from '../../config/constants';
+import Card from '../common/Card';
+import './SinglePlayer.css';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Utils } from '../../config/utils';
-import { FaLightbulb, FaHighlighter, FaThLarge, FaCheckCircle, FaSyncAlt, FaClock } from 'react-icons/fa'; // Import icons
+import { FaLightbulb, FaHighlighter, FaCheckCircle, FaSyncAlt, FaClock } from 'react-icons/fa'; // Import icons
 import CongratsPopup from './CongratsPopup';
 import { submitHighScoreThunk, type HighScoreData } from '../../services/apiService';
 import { useDispatch, useSelector } from 'react-redux';
 import { getWinnerScore } from '../../selectors/leaderboardSelector';
 import type { AppDispatch } from '../../store/store';
+import { PARAM_VARIATION, type CardData } from '../../config/constants';
 
-interface CardData {
-  id: number;
-  image: string;
-  isFlipped: boolean;
-  isMatched: boolean;
-}
-
-export const images = [
-  '🐱', '🐶', '🐼', '🦊', '🐸', '🐵', '🐯', '🦁', '🐮', '🐷', '🐔', '🐙',
-  '🐻', '🐨', '🐰', '🐹', '🦄', '🐴', '🐢', '🐍', '🐳', '🐬', '🦋', '🐞',
-  '🐝', '🦓', '🦒', '🦔', '🦘', '🦜'
-];
-
-const shuffleArray = (array: any[]) => {
-  return array.sort(() => Math.random() - 0.5);
-};
-
-const Game: React.FC = () => {
+const SinglePlayer: React.FC = () => {
   const [searchParams] = useSearchParams();
-  const variation = searchParams.get(PARAM_VARIATION) as GameVariation || GameVariation.EASY;
+  const variation = searchParams.get(PARAM_VARIATION) as string || Utils.getDefaultVariation()
   const COUNTDOWN_TIME = 5; // Countdown time
 
   const [cards, setCards] = useState<CardData[]>([]);
@@ -47,8 +30,8 @@ const Game: React.FC = () => {
   const winnerScore = useSelector(getWinnerScore); // Get winner score from Redux store
   const dispatch = useDispatch<AppDispatch>();
 
-  const { rows, cols } = Utils.getTableLayout(variation);
-  const totalCards = rows * cols;
+  const selectedVariation = Utils.getVariationLayout(variation);
+  const totalCards = selectedVariation.rows * selectedVariation.columns;
 
   const highlightHintPair = useCallback(() => {
     // Find the first unmatched pair
@@ -93,19 +76,8 @@ const Game: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const uniqueCards = Math.floor(totalCards / 2);
-    const imagesToUse = images.slice(0, uniqueCards);
-    // Shuffle and slice the images array to match the total cards
-    const shuffledCards = shuffleArray([...imagesToUse, ...imagesToUse])
-      .slice(0, totalCards)
-      .map((image, index) => ({
-        id: index,
-        image,
-        isFlipped: true, // Initially, all cards are flipped
-        isMatched: false,
-      }));
-
-    setCards(shuffledCards);
+    const shuffledCards = Utils.initializeCards(totalCards);
+    setCards(shuffledCards);    
     // Countdown timer before the game starts
     const countdownInterval = setInterval(() => {
       setCountdown((prev) => {
@@ -229,24 +201,23 @@ const Game: React.FC = () => {
   const handlePlayAgain = () => {
     // Navigate to the game page to re-render
     window.location.reload();
-    // navigate(`/game?variation=${variation}`);
   };
 
-  const handleGoToLeaderboard = () => {
+  const handleGoToDashboard = () => {
     navigate(`/dashboard?variation=${variation}`); // Navigate to the leaderboard/dashboard
   };
 
 
   return (
 
-    <div className="game-container">
+    <div className="single-player-container">
       {isGameWon && (
         <CongratsPopup
           elapsedTime={elapsedTime}
           flipCount={flipCount}
           score={winnerScore}
           onPlayAgain={handlePlayAgain}
-          onGoToLeaderboard={handleGoToLeaderboard}
+          onGoToDashboard={handleGoToDashboard}
         />
       )}
       {!isGameStarted && !isGameWon && (
@@ -256,10 +227,6 @@ const Game: React.FC = () => {
       )}  
       {isGameStarted && (
         <div className="game-info">
-          <div className="info-item">
-            <FaThLarge className="info-icon" title="Variation" />
-            <span className="info-value">{getGameVariationLayout(variation)}</span>
-          </div>
           <div className="info-item">
             <FaCheckCircle className="info-icon" title="Paired" />
             <span className="info-value">{matchedPairs + '/' + totalCards / 2}</span>
@@ -291,14 +258,14 @@ const Game: React.FC = () => {
       )}
       {isGameWon && (
         <div className="game-won">
-          <h2>You won {getGameVariationLayout(variation)} in {elapsedTime} seconds & used {flipCount} flips!</h2>
+          <h2>You won { selectedVariation.name } in {elapsedTime} seconds & used {flipCount} flips!</h2>
         </div>
       )}
       <div
         className="card-grid"
         style={{
-          gridTemplateRows: `repeat(${Utils.getTableLayout(variation).rows}, 1fr)`,
-          gridTemplateColumns: `repeat(${Utils.getTableLayout(variation).cols}, 1fr)`,
+          gridTemplateRows: `repeat(${selectedVariation.rows}, 1fr)`,
+          gridTemplateColumns: `repeat(${selectedVariation.columns}, 1fr)`,
         }}
       >
         {cards.map((card) => (
@@ -318,4 +285,4 @@ const Game: React.FC = () => {
   );
 };
 
-export default Game;
+export default SinglePlayer;

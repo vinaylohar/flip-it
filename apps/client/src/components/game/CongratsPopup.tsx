@@ -6,7 +6,7 @@ interface CongratsPopupProps {
   flipCount: number;
   score: number | null;
   onPlayAgain: () => void;
-  onGoToLeaderboard: () => void;
+  onGoToDashboard: () => void;
 }
 
 const CongratsPopup: React.FC<CongratsPopupProps> = ({
@@ -14,7 +14,7 @@ const CongratsPopup: React.FC<CongratsPopupProps> = ({
   flipCount,
   score,
   onPlayAgain,
-  onGoToLeaderboard,
+  onGoToDashboard,
 }) => {
   return (
     <div className="modal-overlay">
@@ -22,12 +22,12 @@ const CongratsPopup: React.FC<CongratsPopupProps> = ({
         <h2>🎉 Congratulations! 🎉</h2>
         <p>You won in {elapsedTime} seconds and used {flipCount} flips!</p>
         {score !== null && <p>Your Score: <strong>{score}</strong></p>}
-        <div className="modal-buttons">
-          <button onClick={onPlayAgain} className="modal-button play-again">
+        <div className="popup-buttons">
+          <button className="play-again-button" onClick={onPlayAgain}>
             Play Again
           </button>
-          <button onClick={onGoToLeaderboard} className="modal-button leaderboard">
-            Go to Leaderboard
+          <button className="dashboard-button" onClick={onGoToDashboard}>
+            Go to Home
           </button>
         </div>
       </div>

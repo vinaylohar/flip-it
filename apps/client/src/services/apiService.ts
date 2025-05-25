@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import apiClient from '../services/apiClient';
-import type { GameVariation } from '../config/constants';
+import type { GameVariation, GameVariationValues } from '../config/constants';
 
 export interface LeaderboardEntry {
   username: string;
@@ -20,7 +20,7 @@ export interface HighScoreData {
 // Async thunk to fetch leaderboard data
 export const fetchLeaderboardThunk = createAsyncThunk(
   'leaderboard/fetchLeaderboard',
-  async (variation: GameVariation) => {
+  async (variation: GameVariationValues) => {
     const response = await apiClient.get(`/api/high-scores?category=${variation}`);
     return response.data;
   }

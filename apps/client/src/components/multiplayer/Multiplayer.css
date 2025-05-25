@@ -1,0 +1,226 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    /* Prevent scrolling */
+}
+
+.multi-player-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 85px);
+    /* Full viewport height */
+    padding: 10px;
+    box-sizing: border-box;
+
+
+    .card-grid {
+        display: grid;
+        gap: 10px;
+        width: 100%;
+        height: calc(100vh - 100px);
+        /* Adjust height to fit within the viewport */
+        max-width: 90vw;
+        /* Ensure the grid doesn't exceed the viewport width */
+        max-height: 90vh;
+        /* Ensure the grid doesn't exceed the viewport height */
+    }
+
+    .card-grid>div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        /* border-radius: 8px; */
+        font-size: calc(10px + 2vmin);
+        /* Responsive font size */
+        user-select: none;
+    }
+
+
+    .game-info {
+        display: flex;
+        gap: 20px;
+        /* Add spacing between the items */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .info-item {
+        display: flex;
+        flex-direction: row;
+        /* Align items horizontally */
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        /* Add spacing between the icon and the value */
+    }
+
+    .info-icon {
+        font-size: 24px;
+        /* Adjust the size of the icons */
+        color: #007bff;
+        /* Set the color of the icons */
+    }
+
+    .info-value {
+        font-size: 16px;
+        /* Adjust the font size of the value */
+        font-weight: bold;
+        color: #333;
+        /* Set the color of the value */
+    }
+
+    .toggle-hints-button,
+    .hint-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .toggle-hints-button:hover,
+    .hint-button:hover {
+        background-color: #0056b3;
+    }
+
+    .sticky-buttons {
+        position: absolute;
+        top: 20px;
+        /* Adjust as needed */
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+        /* Ensure it stays above other elements */
+    }
+
+    .icon-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .icon-button:hover {
+        background-color: #0056b3;
+        transform: scale(1.1);
+        /* Slight zoom effect on hover */
+    }
+
+    .icon-button:active {
+        transform: scale(0.95);
+        /* Slight shrink effect on click */
+    }
+
+    /* Countdown styling */
+    .countdown {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        /* Match the font size of the icons */
+        font-weight: bold;
+        color: #007bff;
+        /* Use the same color as the icons */
+        text-align: center;
+        margin: 0 auto;
+        /* Center the countdown horizontally */
+    }
+
+    .countdown p {
+        margin: 5px;
+    }
+
+    /* Tabs container */
+    .player-tabs {
+        display: flex;
+        justify-content: center;
+        /* margin-bottom: 20px; */
+        gap: 10px;
+    }
+
+    /* Tab content */
+    .tab-content {
+        text-align: center;
+        /* margin-top: 20px; */
+    }
+
+    /* Player Circle */
+    .player-circle {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+    }
+
+    /* Player Info */
+    .player-info {
+        display: flex;
+        justify-content: space-between;
+        /* Align players to the left and right corners */
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        /* Ensure the container spans the full width */
+        padding: 0 20px;
+        /* Add padding for spacing */
+        box-sizing: border-box;
+    }
+
+    /* Player Details */
+    .player-details {
+        border-radius: 10px;
+        text-align: center;
+        padding: 0 20px;
+        margin: 8px;
+        transition: all 0.3s ease;
+        flex: 1;
+        /* Allow the player details to grow/shrink */
+        max-width: 45%;
+        /* Limit the width of each player box */
+    }
+
+    .player-details.selected {
+        border-color: #4caf50;
+        transform: scale(1.05);
+        /* Slight zoom effect for the selected player */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        /* Add shadow for emphasis */
+    }
+
+    /* Responsive Design for Mobile */
+    @media (max-width: 768px) {
+        .player-tabs {
+            flex-direction: column;
+            /* Stack players vertically */
+            align-items: center;
+            /* Center-align the players */
+            gap: 10px;
+            /* Reduce gap between players */
+        }
+
+        .player-details {
+            max-width: 100%;
+            /* Allow full width for each player box */
+        }
+    }
+}

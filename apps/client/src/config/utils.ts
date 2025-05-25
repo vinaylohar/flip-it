@@ -1,9 +1,12 @@
-import { GameVariation } from "./constants";
+import { GAME_IMAGES, GAME_VARIATIONS, GameVariationValues, type CardData, type GameVariation } from "./constants";
 
 const PLAYER_FB_ID_KEY = 'playerFBId';
 const USERNAME_KEY = 'username';
 
 export class Utils {
+    static getVariationName(selectedVariation: GameVariationValues) {
+        return GAME_VARIATIONS.find(v => v.value === selectedVariation)?.name || '';
+    }
     /**
      * Get the playerFBId from localStorage
      */
@@ -54,19 +57,46 @@ export class Utils {
         Utils.clearUsernameFromLocalStorage();
     }
 
-    // Define table layouts for each variation
-    static getTableLayout = (variation: GameVariation) => {
-        switch (variation) {
-            case GameVariation.SUPER_EASY:
-                return { rows: 2, cols: 2 }; // 2x2 grid
-            case GameVariation.EASY:
-                return { rows: 6, cols: 6 }; // 6x6 grid
-            case GameVariation.MEDIUM:
-                return { rows: 8, cols: 6 }; // 8x6 grid
-            case GameVariation.HARD:
-                return { rows: 10, cols: 6 }; // 10x6 grid
-            default:
-                return { rows: 6, cols: 6 }; // Default to easy
-        }
+    /**
+   * Get the visible game variations
+   */
+    static getVisibleGameVariations(): Array<GameVariation> {
+        return GAME_VARIATIONS.filter(v => v.isVisible);
+    }
+
+    /**
+     * Get the default game variation based on visibility
+     */
+    static getDefaultVariation(): string {
+        return GAME_VARIATIONS.find(v => v.isVisible)?.value || '';
+    }
+
+    /**
+     * Get the default game variation based on visibility
+     */
+    static getVariationLayout(variation: string): GameVariation {
+        return GAME_VARIATIONS.find(v => v.isVisible && v.value === variation) || Utils.getVisibleGameVariations()[0];
+    }
+
+    static shuffleArray = (array: any[]): any[] => {
+        return array.sort(() => Math.random() - 0.5);
+    };
+
+    static initializeCards = (totalCards: number): CardData[] => {
+        const uniqueCards = Math.floor(totalCards / 2);
+        const imagesToUse = GAME_IMAGES.slice(0, uniqueCards);
+
+        // Shuffle and slice the images array to match the total cards
+        const shuffledCards = Utils.shuffleArray([...imagesToUse, ...imagesToUse])
+            .slice(0, totalCards)
+            .map((image, index) => ({
+                id: index,
+                image,
+                isFlipped: true, // Initially, all cards are flipped
+                isMatched: false,
+                isHinted: false, // Add the missing isHinted property
+            }));
+
+        return shuffledCards;
     };
 }

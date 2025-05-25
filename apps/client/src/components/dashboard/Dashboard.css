@@ -1,249 +1,102 @@
-/* General container styling */
+/* Center align the dashboard content */
 .dashboard-container {
   display: flex;
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
-  justify-content: space-between;
-  gap: 20px;
-  padding: 0 20px;
-  height: calc(100vh - 85px); /* Ensure the container takes up the full viewport height */
-  box-sizing: border-box; /* Include padding in height calculation */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  position: relative; /* For positioning the leaderboard button */
 }
 
-/* Left column (game options) */
-.left-column {
-  flex: 1;
-  min-width: 300px; /* Ensure a minimum width for the left column */
-  max-height: 100%; /* Prevent overflow */
-  overflow-y: auto; /* Add vertical scroll bar if content overflows */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center items vertically */
-  align-items: center; /* Center items horizontally */
+/* Content wrapper */
+.content {
   text-align: center;
 }
 
-/* Right column (leaderboard) */
-.right-column {
-  flex: 1;
-  min-width: 300px; /* Ensure a minimum width for the right column */
-  max-height: 100%; /* Prevent overflow */
+/* Grouped buttons */
+.grouped-buttons {
   display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center items vertically */
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
-/* Styling for the variation buttons container */
-.variation-buttons {
-  /* display: flex; */
-  flex-wrap: wrap; /* Allow buttons to wrap if needed */
-  gap: 10px; /* Add spacing between buttons */
-  justify-content: center; /* Center the buttons */
-  /* margin-top: 15px; */
-}
-
-/* Styling for each variation button */
-.variation-buttons button {
-  width: 80px; 
-  padding: 12px 16px;
-  margin: 10px;
-  background-color: #007bff; /* Blue background */
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  border: none;
-  border-radius: 8px; /* Rounded corners */
+/* Mode buttons */
+.mode-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border: 2px solid #4caf50;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #4caf50;
+  font-size: 1.5rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: all 0.3s ease;
 }
 
-/* Hover effect for variation buttons */
-.variation-buttons button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-  transform: scale(1.05); /* Slightly enlarge the button on hover */
+.mode-button.active {
+  background-color: #4caf50;
+  color: #ffffff;
 }
 
-/* Active/selected variation button */
-.variation-buttons button.active {
-  background-color: #28a745; /* Green background for active button */
-  color: white;
-  border: 2px solid #1e7e34; /* Add a border for the active button */
-  transform: scale(1.1); /* Slightly enlarge the active button */
+.mode-button:hover {
+  background-color: #45a049;
+  color: #ffffff;
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  .variation-buttons button {
-    flex: 1 1 calc(50% - 10px); /* Adjust to two buttons per row */
-    max-width: 100%; /* Remove max-width for smaller screens */
-  }
+/* Play Now button */
+.play-now-container {
+  margin-top: 20px;
 }
 
 .play-now-button {
-  background: linear-gradient(90deg, #f1c40f, #f39c12); /* Golden gradient */
-  color: #ffffff; /* White text for contrast */
-  font-size: 1.2rem; /* Slightly larger font size */
+  padding: 15px 30px;
+  font-size: 1.5rem;
   font-weight: bold;
-  padding: 10px 20px; /* Add padding for a better look */
-  border: none; /* Remove default border */
-  border-radius: 8px; /* Slightly more rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  background: linear-gradient(90deg, #ff5722, #ff9800);
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .play-now-button:hover {
-  background: linear-gradient(90deg, #d4ac0d, #e67e22); /* Darker golden gradient on hover */
-  transform: scale(1.05); /* Slight zoom effect */
+  background: linear-gradient(90deg, #e64a19, #f57c00);
+  transform: scale(1.05);
 }
 
 .play-now-button:active {
-  background: linear-gradient(90deg, #b7950b, #ca6f1e); /* Even darker golden gradient when clicked */
-  transform: scale(0.95); /* Slight shrink effect */
+  background: linear-gradient(90deg, #d84315, #ef6c00);
+  transform: scale(0.95);
 }
 
-.play-icon {
-  font-size: 20px; /* Adjust the size of the play icon */
-}
-.leaderboard-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.leaderboard-header,
-.leaderboard-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.right-column h2 {
-  position: sticky; /* Make the header stick to the top */
-  top: 0; /* Stick to the top of the container */
-  z-index: 1; /* Ensure it stays above the rows */
-}
-
-/* Style for the leaderboard container with a border and title */
-.leaderboard-container {
-  border: 2px solid #4caf50; /* Green border */
-  border-radius: 10px; /* Rounded corners */
-  padding: 20px 20px 10px 20px;
-  position: relative;
-  /* margin: 20px auto; */
-  max-width: 600px;
-  background-color: #ffffff; /* White background */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-.leaderboard-container::before {
-  content: "Leaderboard"; /* Title inside the border */
+/* Leaderboard button */
+.leaderboard-button {
   position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #ffffff; /* Match the container background */
-  padding: 0 10px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #4caf50;
-  font-family: 'Poppins', sans-serif;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5rem; /* Icon size */
+  background: none;
+  border: none;
+  color: #4caf50; /* Green color for the icon */
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-/* Style for the leaderboard table */
-.leaderboard-table {
-  width: 100%;
-  border-collapse: collapse; /* Remove gaps between cells */
-  text-align: left;
+.leaderboard-button:hover {
+  color: #45a049; /* Darker green on hover */
 }
 
-.leaderboard-table td {
-  padding: 10px;
-  font-size: 1rem;
-  font-family: 'Poppins', sans-serif;
+.leaderboard-button:active {
+  color: #3e8e41; /* Even darker green when clicked */
 }
 
-.leaderboard-table tr:first-child td {
-  border-top: none; /* Remove top border for the first row */
-}
-
-/* Medal styles for the top 3 players */
-.leaderboard-table .gold-medal::before {
-  content: "🥇"; /* Gold medal emoji */
-  margin-right: 5px;
-  text-align: right;
-}
-
-.leaderboard-table .silver-medal::before {
-  content: "🥈"; /* Silver medal emoji */
-  margin-right: 5px;
-  text-align: right;
-}
-
-.leaderboard-table .bronze-medal::before {
-  content: "🥉"; /* Bronze medal emoji */
-  margin-right: 5px;
-  text-align: right;
-}
-
-/* Highlight the current player */
-.current-player {
-  background-color: #ccc;
-}
-
-/* Circle initials before every player */
-.player-initial {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  border-radius: 50%;
-  background-color: #4caf50; /* Green background */
-  color: #ffffff; /* White text */
-  text-align: center;
-  font-weight: bold;
-  margin-right: 10px;
-  font-family: 'Poppins', sans-serif;
-}
-
-.variations-title {
-  font-size: 18px;
-  font-weight: bold;
-  color: #4caf50;
-  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); */
-  text-align: center;
-  margin: 10px 0;
-  font-family: 'Poppins', sans-serif;
-}
-
-.game-options {
-  margin-bottom: 10px;
-}
-
-.brain-train-image {
-  width: 150px; /* Adjust the size of the image */
-  height: auto; /* Maintain aspect ratio */
-  display: block;
-  margin: 0 auto 0px;
-}
-
-.player-rank {
-  font-weight: bold;
-  margin-right: 10px;
-  color: #555; /* Subtle gray color */
-  font-family: 'Poppins', sans-serif;
-}
-
-.column-1 {
-  width: 10px;
-  text-align: right;
-}
-
-.column-3 {
-  width: 10px;
-  text-align: right;
+/* Icon inside the button */
+.icon {
+  font-size: 1.8rem; /* Adjust icon size */
 }
