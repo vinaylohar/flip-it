@@ -1,0 +1,41 @@
+.game-info {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-info h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.game-info .player-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.game-info .info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.game-info .info-item .info-icon {
+    font-size: 1.5rem;
+    color: #4caf50;
+}
+
+.game-info .info-item .info-value {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+}

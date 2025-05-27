@@ -2,6 +2,9 @@ export const API_BASE_URL = 'http://localhost:3000';
 
 export const PARAM_VARIATION = 'variation';
 
+export const COUNTDOWN_TIME = 5;
+
+
 export enum GameVariationValues {
     SUPER_EASY = 'super_easy',
     EASY = 'easy',
