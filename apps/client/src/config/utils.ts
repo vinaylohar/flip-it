@@ -50,7 +50,7 @@ export class Utils {
     }
 
     /**
-     * Clear all user-related data from localStorage (e.g., on logout or session timeout)
+     * Clear all user-related data from localStorage
      */
     static clearUserSessionFromLocalStorage(): void {
         Utils.clearPlayerFBIdFromLocalStorage();

@@ -10,6 +10,16 @@ export interface HighScore {
   category: string;
 }
 
+export interface Database {
+  scores: HighScore[];
+}
+
 export type HighScorePostRequestBody = Omit<HighScore, "id">;
 
 export type HighScoreRequest = Request<{}, {}, HighScorePostRequestBody>;
+
+export interface Database {
+  scores: HighScore[];
+}
+
+
