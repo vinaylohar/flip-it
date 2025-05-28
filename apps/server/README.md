@@ -40,7 +40,7 @@ This is the backend server for the Memory Game Task. It is built using **Node.js
 
 1. Clone this repository to your local machine:
    ```bash
-   git clone https://github.com/vinaylohar/flip-it
+   git clone <repo_name>
    ```
 
 2. Navigate to the server directory:

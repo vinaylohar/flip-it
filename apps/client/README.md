@@ -43,7 +43,7 @@ This is the frontend client for the Memory Game Task. It is built using **React*
 
 1. Clone this repository to your local machine:
    ```bash
-   git clone https://github.com/vinaylohar/flip-it
+   git clone <repo_name>
    ```
 
 2. Navigate to the client directory:
