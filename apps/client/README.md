@@ -137,4 +137,4 @@ The application uses **Firebase Authentication** to manage user accounts. Users 
 
 ## Contributors
 
-- [Vinay Lohar](https://github.com/vinaylohar)
+- [Vinay Lohar]
