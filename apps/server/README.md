@@ -168,4 +168,4 @@ server/
 
 ## Contributors
 
-- [Vinay Lohar](https://github.com/vinaylohar)
+- [Vinay Lohar]
