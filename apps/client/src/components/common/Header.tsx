@@ -16,6 +16,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
   const [searchParams] = useSearchParams();
   const selectedVariation = (searchParams.get(PARAM_VARIATION) as GameVariationValues) || Utils.getDefaultVariation();
   const variationName = Utils.getVariationName(selectedVariation);
+  const [showLogoutPopup, setShowLogoutPopup] = useState(false);
 
   useEffect(() => {
     // Fetch the userName from localStorage
@@ -24,24 +25,35 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
     setUserName(storedUserName);
   }, []);
 
+  const handleCancelLogout = () => {
+    setShowLogoutPopup(false);
+  };
+
+  const confirmLogout = () => {
+    setShowLogoutPopup(false);
+    handleSignOut();
+  };
+
   const handleSignOut = () => {
-    const confirmSignOut = window.confirm('Are you sure you want to sign out?');
-    if (confirmSignOut) {
-      Utils.clearUserSessionFromLocalStorage(); // Clear user session from local storage
-      navigate('/'); // Navigate to the home screen
-      window.location.reload(); // Force a page reload to clear cached state
-      window.history.replaceState(null, '', '/'); // Replace the current history state
-      // Sign out the user from firebase
-      auth.signOut().then(() => {
-        console.log('User signed out');
-      }).catch((error) => {
-        console.error('Error signing out:', error);
-      });
-    }
+
+    Utils.clearUserSessionFromLocalStorage(); // Clear user session from local storage
+    navigate('/'); // Navigate to the home screen
+    window.location.reload(); // Force a page reload to clear cached state
+    window.history.replaceState(null, '', '/'); // Replace the current history state
+    // Sign out the user from firebase
+    auth.signOut().then(() => {
+      console.log('User signed out');
+    }).catch((error) => {
+      console.error('Error signing out:', error);
+    });
   };
 
   const handleBackToDashboard = () => {
     navigate('/dashboard');     // Navigate back to the dashboard
+  };
+
+  const handleLogoutClick = () => {
+    setShowLogoutPopup(true);
   };
 
   return (
@@ -65,9 +77,25 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
         <FaSignOutAlt
           className="signout-icon"
           title="Sign Out"
-          onClick={handleSignOut}
+          onClick={handleLogoutClick}
         />
       </div>
+      {/* Logout Popup */}
+      {showLogoutPopup && (
+        <div className="logout-popup">
+          <div className="popup-content">
+            <p>Are you sure you want to log out?</p>
+            <div className="popup-actions">
+              <button className="cancel-button" onClick={handleCancelLogout}>
+                Cancel
+              </button>
+              <button className="confirm-button" onClick={confirmLogout}>
+                Log Out
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

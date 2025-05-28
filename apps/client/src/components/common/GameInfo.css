@@ -1,41 +1,31 @@
+/* Ensure the game-info container is a single row */
 .game-info {
     display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-}
-
-.game-info h3 {
+    justify-content: space-between;
+    gap: 20px; /* Add spacing between items */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Prevent overflow issues */
+  }
+  
+  /* Style individual info items */
+  .info-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
-}
-
-.game-info .player-circle {
-    width: 20px;
-    height: 20px;
+    gap: 5px; /* Add spacing between icon and value */
+  }
+  
+  /* Ensure the player name and circle are aligned */
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add spacing between the circle and name */
+    margin: 0;
+  }
+  
+  .player-circle {
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     display: inline-block;
-}
-
-.game-info .info-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.game-info .info-item .info-icon {
-    font-size: 1.5rem;
-    color: #4caf50;
-}
-
-.game-info .info-item .info-value {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #555;
-}
+  }

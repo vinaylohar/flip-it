@@ -54,6 +54,13 @@
   cursor: not-allowed;
 }
 
+/* Disable hover and active effects when disabled */
+.mode-button:disabled:hover,
+.mode-button:disabled:active {
+  background-color: #cccccc;
+  color: #666666;
+}
+
 /* Play Now button */
 .play-now-container {
   margin-top: 20px;

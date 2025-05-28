@@ -1,6 +1,6 @@
 .sticky-buttons {
     position: absolute;
-    top: 20px;
+    bottom: 20px;
     right: 20px;
     display: flex;
     flex-direction: column;
@@ -9,7 +9,7 @@
   }
   
   .icon-button {
-    background-color: #007bff;
+    background-color: #4caf50;
     color: white;
     border: none;
     border-radius: 50%;

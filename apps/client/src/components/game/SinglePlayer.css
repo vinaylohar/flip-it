@@ -16,40 +16,5 @@ html {
     /* Full viewport height */
     padding: 10px;
     box-sizing: border-box;
-
-
-    .card-grid {
-        display: grid;
-        gap: 10px;
-        width: 100%;
-        height: calc(100vh - 100px);
-        /* Adjust height to fit within the viewport */
-        max-width: 90vw;
-        /* Ensure the grid doesn't exceed the viewport width */
-        max-height: 90vh;
-        /* Ensure the grid doesn't exceed the viewport height */
-    }
-
-    .card-grid>div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #f0f0f0;
-        border: 1px solid #ccc;
-        /* border-radius: 8px; */
-        font-size: calc(10px + 2vmin);
-        /* Responsive font size */
-        user-select: none;
-    }
-
-
-    .game-info {
-        display: flex;
-        gap: 20px;
-        /* Add spacing between the items */
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 10px;
-    }
-
+    gap: 10px;
 }

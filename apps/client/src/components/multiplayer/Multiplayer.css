@@ -14,47 +14,26 @@ html {
     align-items: center;
     height: calc(100vh - 85px);
     /* Full viewport height */
-    padding: 10px;
     box-sizing: border-box;
 
-
-    .card-grid {
-        display: grid;
-        gap: 10px;
-        width: 100%;
-        height: calc(100vh - 100px);
-        /* Adjust height to fit within the viewport */
-        max-width: 90vw;
-        /* Ensure the grid doesn't exceed the viewport width */
-        max-height: 90vh;
-        /* Ensure the grid doesn't exceed the viewport height */
-    }
-
-    .card-grid>div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #f0f0f0;
-        border: 1px solid #ccc;
-        /* border-radius: 8px; */
-        font-size: calc(10px + 2vmin);
-        /* Responsive font size */
-        user-select: none;
-    }
-
-
-    /* Tabs container */
+    /* Ensure the player-tabs container aligns items vertically */
     .player-tabs {
-        display: flex;
-        justify-content: center;
-        /* margin-bottom: 20px; */
-        gap: 10px;
+        display: flex; 
+        flex-direction: row; 
+        align-items: center; 
+        justify-content: space-around; 
+        gap: 20px; 
+        padding: 10px;
     }
+  
 
-    /* Tab content */
+  
     .tab-content {
-        text-align: center;
-        /* margin-top: 20px; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px; 
     }
 
     /* Player Circle */
@@ -79,19 +58,17 @@ html {
         /* Add padding for spacing */
         box-sizing: border-box;
     }
-
-    /* Player Details */
     .player-details {
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+        padding: 10px;
+        border: 1px solid transparent; /* Default border is transparent */
         border-radius: 10px;
-        text-align: center;
-        padding: 0 20px;
-        margin: 8px;
-        transition: all 0.3s ease;
-        flex: 1;
-        /* Allow the player details to grow/shrink */
-        max-width: 45%;
-        /* Limit the width of each player box */
-    }
+        box-shadow: none; /* No shadow by default */
+        transition: all 0.3s ease; /* Smooth transition for border and box-shadow */
+      }
 
     .player-details.selected {
         border-color: #4caf50;
@@ -99,6 +76,9 @@ html {
         /* Slight zoom effect for the selected player */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         /* Add shadow for emphasis */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
     }
 
     /* Responsive Design for Mobile */
