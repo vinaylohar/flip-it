@@ -1,30 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
 import './Dashboard.css';
-import type { AppDispatch } from '../../store/store';
-import { fetchLeaderboardThunk } from '../../services/apiService';
 import { GAME_VARIATIONS, GameVariationValues, PARAM_VARIATION } from '../../config/constants';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Utils } from '../../config/utils';
 import { FaTrophy, FaUser, FaUsers, FaWifi } from 'react-icons/fa';
 import { MdSignalWifiOff } from "react-icons/md";
 const Dashboard: React.FC = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const selectedVariation = (searchParams.get(PARAM_VARIATION) as GameVariationValues) || Utils.getDefaultVariation();
+  const [searchParams, setSearchParams] = useSearchParams(); // Get the current search parameters from the URL
+  const selectedVariation = (searchParams.get(PARAM_VARIATION) as GameVariationValues) || Utils.getDefaultVariation(); // Get the selected variation from the URL or use the default variation
   const [selectedMode, setSelectedMode] = useState("singleplayer");
 
-  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    // Fetch leaderboard data
-    dispatch(fetchLeaderboardThunk(selectedVariation));
-
-  }, [selectedVariation]);
 
   const handleVariationChange = (variation: GameVariationValues) => {
     setSearchParams({ variation }); // Update the URL with the selected variation
-    dispatch(fetchLeaderboardThunk(variation)); // Fetch leaderboard data for the new variation
   };
 
   const handleModeChange = (mode: string) => {
@@ -48,13 +37,11 @@ const Dashboard: React.FC = () => {
       <button className="leaderboard-button" onClick={handleViewLeaderboard}>
         <FaTrophy className="icon" />
       </button>
-      {/* <h2>Welcome, {userName || 'Guest'}!</h2> */}
       <div className="game-options">
         <img
           src="../public/brain_train.png"
           className="brain-train-image"
         />
-        {/* <h3 className="variations-title">Select difficulty</h3> */}
         <div className="grouped-buttons">
           {GAME_VARIATIONS.filter(v => v.isVisible).map((variation) => (
             <button
@@ -86,7 +73,8 @@ const Dashboard: React.FC = () => {
           <button
             className={`mode-button ${selectedMode === "multiplayer_online" ? "active" : ""}`}
             onClick={() => handleModeChange("multiplayer_online")}
-            title="Multiplayer Online"
+            title="Multiplayer Online (Coming Soon)"
+            disabled={true}
           >
             <FaUsers className="icon" />
             <FaWifi className="icon" />

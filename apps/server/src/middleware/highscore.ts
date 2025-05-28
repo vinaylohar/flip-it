@@ -1,17 +1,17 @@
 import express, { NextFunction } from "express";
 import { HighScoreRequest } from "../types";
 
+// Middleware to validate high score submission requests
 export async function validateHighScoreSubmission(
   req: HighScoreRequest,
   res: express.Response,
   next: express.NextFunction
 ) {
   const playerFBId = req.headers['playerfbid'];
-
   const { player, guesses, timeTakeInSeconds } = req.body;
-
   const errors: string[] = [];
 
+  // Check if mandatory headers and body parameters are present
   if (typeof playerFBId !== "string" || !playerFBId) {
     errors.push("missing mandatory header params");
   }
@@ -40,6 +40,7 @@ export async function validateHighScoreSubmission(
 
 }
 
+// Middleware to validate high score retrieval requests
 export async function validateHighScoreGetReuest(
   req: HighScoreRequest,
   res: express.Response,
@@ -47,9 +48,9 @@ export async function validateHighScoreGetReuest(
 ) {
   const playerFBId = req.headers['playerfbid'];
   const category = req.query?.category ?? "";
-
   const errors: string[] = [];
 
+  // Check if mandatory headers and query parameters are present
   if (typeof playerFBId !== "string" || !playerFBId) {
     errors.push("missing mandatory header params");
   }

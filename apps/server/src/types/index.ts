@@ -1,5 +1,6 @@
 import { Request } from "express";
 
+// This file defines the types and interfaces used in the high score feature of the Memory Game API.
 export interface HighScore {
   id: string;
   player: string;

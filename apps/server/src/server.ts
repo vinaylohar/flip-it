@@ -2,6 +2,7 @@ import { createApp } from "./app";
 import { initializeDatabase } from "./services/database";
 import chalk from "chalk";
 
+// Start the server and initialize the database
 const startServer = async () => {
   const port = process.env.PORT || 3000;
 

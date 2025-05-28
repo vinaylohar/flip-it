@@ -72,15 +72,22 @@
     font-weight: 600;
     color: #ffffff;
     margin-right: 10px;
-    max-width: 70px;
-    /* Set a maximum width for the username */
-    white-space: nowrap;
-    /* Prevent the text from wrapping */
-    overflow: hidden;
-    /* Hide the overflowed text */
-    text-overflow: ellipsis;
-    /* Add ellipsis (...) for overflowed text */
 }
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    /* Styling for the username */
+    .user-name {
+        max-width: 70px;
+        /* Set a maximum width for the username */
+        white-space: nowrap;
+        /* Prevent the text from wrapping */
+        overflow: hidden;
+        /* Hide the overflowed text */
+        text-overflow: ellipsis;
+        /* Add ellipsis (...) for overflowed text */
+}
+    }
 
 /* Variation name */
 .header-variation {

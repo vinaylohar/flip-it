@@ -13,7 +13,7 @@ export enum GameVariationValues {
 }
 
 export type GameVariation = {
-    name: string;       // Name of the variation (e.g., '2x2')
+    name: string;       // Name of the variation 
     value: GameVariationValues;      // Unique identifier for the variation (e.g., 'super_easy')
     rows: number;       // Number of rows in the grid
     columns: number;    // Number of columns in the grid
@@ -26,7 +26,7 @@ export const GAME_VARIATIONS: GameVariation[] = [
         value: GameVariationValues.SUPER_EASY,
         rows: 2,
         columns: 2,
-        isVisible: true,
+        isVisible: false,
     },
     {
         name: '6x6',

@@ -47,6 +47,13 @@
   color: #ffffff;
 }
 
+/* Disabled button styles */
+.mode-button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
 /* Play Now button */
 .play-now-container {
   margin-top: 20px;

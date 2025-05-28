@@ -5,6 +5,11 @@ import { errorHandler } from "./middleware/errorHandler";
 import rootRoutes from "./routes/index";
 import highScoresRoutes from "./routes/highscores";
 
+/**
+ * Initializes the Express application with middleware and routes.
+ * 
+ * @returns {express.Express} The initialized Express app.
+ */
 export const createApp = () => {
     const app = express();
 
