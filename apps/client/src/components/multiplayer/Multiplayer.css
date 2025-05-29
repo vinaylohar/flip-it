@@ -4,7 +4,6 @@ html {
     padding: 0;
     height: 100%;
     overflow: hidden;
-    /* Prevent scrolling */
 }
 
 .multi-player-container {
@@ -13,30 +12,25 @@ html {
     justify-content: center;
     align-items: center;
     height: calc(100vh - 85px);
-    /* Full viewport height */
     box-sizing: border-box;
 
-    /* Ensure the player-tabs container aligns items vertically */
     .player-tabs {
-        display: flex; 
-        flex-direction: row; 
-        align-items: center; 
-        justify-content: space-around; 
-        gap: 20px; 
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 20px;
         padding: 10px;
     }
-  
 
-  
     .tab-content {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 5px; 
+        gap: 5px;
     }
 
-    /* Player Circle */
     .player-circle {
         width: 15px;
         height: 15px;
@@ -45,56 +39,46 @@ html {
         margin-right: 8px;
     }
 
-    /* Player Info */
     .player-info {
         display: flex;
         justify-content: space-between;
-        /* Align players to the left and right corners */
         align-items: center;
         gap: 20px;
         width: 100%;
-        /* Ensure the container spans the full width */
         padding: 0 20px;
-        /* Add padding for spacing */
         box-sizing: border-box;
     }
+
     .player-details {
-        display: flex; 
-        flex-direction: column; 
-        align-items: center; 
-        justify-content: center; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         padding: 10px;
-        border: 1px solid transparent; /* Default border is transparent */
+        border: 1px solid transparent;
         border-radius: 10px;
-        box-shadow: none; /* No shadow by default */
-        transition: all 0.3s ease; /* Smooth transition for border and box-shadow */
-      }
+        box-shadow: none;
+        transition: all 0.3s ease;
+    }
 
     .player-details.selected {
         border-color: #4caf50;
         transform: scale(1.05);
-        /* Slight zoom effect for the selected player */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        /* Add shadow for emphasis */
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 10px;
     }
 
-    /* Responsive Design for Mobile */
     @media (max-width: 768px) {
         .player-tabs {
             flex-direction: column;
-            /* Stack players vertically */
             align-items: center;
-            /* Center-align the players */
             gap: 10px;
-            /* Reduce gap between players */
         }
 
         .player-details {
             max-width: 100%;
-            /* Allow full width for each player box */
         }
     }
 }

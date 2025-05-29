@@ -1,19 +1,16 @@
-/* Center align the dashboard content */
 .dashboard-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Full viewport height */
-  position: relative; /* For positioning the leaderboard button */
+  height: 100vh;
+  position: relative;
 }
 
-/* Content wrapper */
 .content {
   text-align: center;
 }
 
-/* Grouped buttons */
 .grouped-buttons {
   display: flex;
   justify-content: center;
@@ -21,7 +18,6 @@
   margin-bottom: 20px;
 }
 
-/* Mode buttons */
 .mode-button {
   display: flex;
   align-items: center;
@@ -47,21 +43,18 @@
   color: #ffffff;
 }
 
-/* Disabled button styles */
 .mode-button:disabled {
   background-color: #cccccc;
   color: #666666;
   cursor: not-allowed;
 }
 
-/* Disable hover and active effects when disabled */
 .mode-button:disabled:hover,
 .mode-button:disabled:active {
   background-color: #cccccc;
   color: #666666;
 }
 
-/* Play Now button */
 .play-now-container {
   margin-top: 20px;
 }
@@ -89,28 +82,26 @@
   transform: scale(0.95);
 }
 
-/* Leaderboard button */
 .leaderboard-button {
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 1.5rem; /* Icon size */
+  font-size: 1.5rem;
   background: none;
   border: none;
-  color: #4caf50; /* Green color for the icon */
+  color: #4caf50;
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .leaderboard-button:hover {
-  color: #45a049; /* Darker green on hover */
+  color: #45a049;
 }
 
 .leaderboard-button:active {
-  color: #3e8e41; /* Even darker green when clicked */
+  color: #3e8e41;
 }
 
-/* Icon inside the button */
 .icon {
-  font-size: 1.8rem; /* Adjust icon size */
+  font-size: 1.8rem;
 }

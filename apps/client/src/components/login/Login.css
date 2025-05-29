@@ -9,16 +9,15 @@
 
 .content {
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  align-items: center; /* Center align all child elements horizontally */
-  text-align: center; /* Center align text */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .animated-title {
   display: flex;
   justify-content: center;
   gap: 10px;
-  /* Add spacing between characters */
   font-size: 48px;
   font-weight: bold;
 }
@@ -34,22 +33,18 @@
   align-items: center;
   border-radius: 4px;
   transform: rotateY(90deg);
-  /* Start flipped */
   animation: flipIn 0.5s ease forwards;
   animation-delay: calc(var(--char-index) * 0.3s);
-  /* Delay based on index */
   opacity: 0;
 }
 
 .char-I {
   background-color: #ff4d4d;
-  /* Matching background color for 'I' */
 }
 
 .char-space {
   background-color: transparent;
   width: 10px;
-  /* Transparent background for space */
 }
 
 @keyframes flipIn {
@@ -64,98 +59,94 @@
   }
 }
 
-/* Styling for the subtitle */
 .subtitle {
   font-size: 20px;
   font-weight: 600;
-  color: #007bff; /* Dark gray for readability */
+  color: #007bff;
   text-align: center;
   margin-top: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px; /* Add spacing between the icon and text */
+  gap: 10px;
   opacity: 0;
   animation: fadeIn 1s ease forwards;
-  animation-delay: 1.5s; /* Delay to appear after the title animation */
+  animation-delay: 1.5s;
 }
 
-/* Styling for the rotating icon */
 .subtitle-icon {
-  font-size: 24px; /* Adjust the size of the icon */
-  color: #007bff; /* Blue color to match the theme */
+  font-size: 24px;
+  color: #007bff;
   animation: rotateIn 1s ease forwards;
-  animation-delay: 1.5s; /* Match the subtitle's delay */
-  transform-origin: center; /* Rotate around the center */
+  animation-delay: 1.5s;
+  transform-origin: center;
 }
 
-/* Fade-in animation for the subtitle */
 @keyframes fadeIn {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
 
-/* Rotate-in animation for the icon */
 @keyframes rotateIn {
   0% {
     transform: rotate(-360deg);
     opacity: 0;
   }
+
   100% {
     transform: rotate(0deg);
     opacity: 1;
   }
 }
 
-/* Styling for the logo */
 .logo-img {
   width: 100px;
   height: 100px;
-  opacity: 0; /* Initially hidden */
+  opacity: 0;
   animation: fadeIn 1s ease forwards;
-  animation-delay: 0.5s; /* Appear after the subtitle animation */
+  animation-delay: 0.5s;
 }
 
-/* Styling for the Google Sign-In button */
 .google-signin-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px; /* Add spacing between the icon and text */
+  gap: 10px;
   padding: 12px 20px;
-  background-color: white; /* White background for Google branding */
-  color: #333; /* Dark text for contrast */
+  background-color: white;
+  color: #333;
   font-size: 16px;
   font-weight: bold;
-  border: 1px solid #ccc; /* Light border for a clean look */
-  border-radius: 8px; /* Rounded corners */
+  border: 1px solid #ccc;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  opacity: 0; /* Initially hidden */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
   animation: fadeIn 1s ease forwards;
-  animation-delay: 3s; /* Appear after the logo */
+  animation-delay: 3s;
 }
 
 .google-signin-button:hover {
-  background-color: #f7f7f7; /* Slightly darker background on hover */
-  transform: scale(1.05); /* Slightly enlarge the button on hover */
+  background-color: #f7f7f7;
+  transform: scale(1.05);
 }
 
 .google-signin-button:active {
-  background-color: #e6e6e6; /* Even darker background when clicked */
-  transform: scale(0.95); /* Slightly shrink the button when clicked */
+  background-color: #e6e6e6;
+  transform: scale(0.95);
 }
 
-/* Fade-in animation for elements */
 @keyframes fadeIn {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }

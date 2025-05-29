@@ -4,7 +4,6 @@ html {
     padding: 0;
     height: 100%;
     overflow: hidden;
-    /* Prevent scrolling */
 }
 
 .single-player-container {
@@ -13,7 +12,6 @@ html {
     justify-content: center;
     align-items: center;
     height: calc(100vh - 85px);
-    /* Full viewport height */
     padding: 10px;
     box-sizing: border-box;
     gap: 10px;

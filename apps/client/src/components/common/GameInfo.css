@@ -1,31 +1,28 @@
-/* Ensure the game-info container is a single row */
 .game-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px; /* Add spacing between items */
-    white-space: nowrap; /* Prevent text wrapping */
-    overflow: hidden; /* Prevent overflow issues */
-  }
-  
-  /* Style individual info items */
-  .info-item {
-    display: flex;
-    align-items: center;
-    gap: 5px; /* Add spacing between icon and value */
-  }
-  
-  /* Ensure the player name and circle are aligned */
-  h3 {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Add spacing between the circle and name */
-    margin: 0;
-  }
-  
-  .player-circle {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    display: inline-block;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.player-circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}

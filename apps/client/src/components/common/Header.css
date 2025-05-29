@@ -5,7 +5,6 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
-    /* Space out the logo/title and the sign-out icon */
     align-items: center;
 }
 
@@ -37,16 +36,13 @@
 
 .signout-icon:hover {
     color: #ff4d4d;
-    /* Change color on hover to indicate action */
 }
 
-/* Styling for the user info */
 .user-info {
     margin-left: auto;
     display: flex;
     align-items: center;
     gap: 10px;
-    /* Add spacing between the icon and the username */
 }
 
 /* Styling for the user icon */
@@ -61,12 +57,9 @@
     font-size: 18px;
     font-weight: bold;
     border-radius: 50%;
-    /* Make it circular */
     text-transform: uppercase;
-    /* Ensure the initial is uppercase */
 }
 
-/* Styling for the username */
 .user-name {
     font-size: 16px;
     font-weight: 600;
@@ -76,20 +69,14 @@
 
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
-    /* Styling for the username */
     .user-name {
         max-width: 70px;
-        /* Set a maximum width for the username */
         white-space: nowrap;
-        /* Prevent the text from wrapping */
         overflow: hidden;
-        /* Hide the overflowed text */
         text-overflow: ellipsis;
-        /* Add ellipsis (...) for overflowed text */
 }
     }
 
-/* Variation name */
 .header-variation {
     font-size: 1.2rem;
     font-weight: bold;
@@ -113,7 +100,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;

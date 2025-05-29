@@ -1,26 +1,19 @@
-/* General container styling */
 .dashboard-container {
   display: flex;
   flex-wrap: wrap;
-  /* Allow items to wrap to the next line */
   gap: 20px;
   padding: 0 20px;
   height: calc(100vh - 85px);
-  /* Ensure the container takes up the full viewport height */
   box-sizing: border-box;
-  /* Include padding in height calculation */
 }
 
-/* Grouped buttons container */
 .grouped-buttons {
   display: flex;
   justify-content: center;
   gap: 15px;
-  /* Space between buttons */
   margin-bottom: 20px;
 }
 
-/* Variation and mode buttons */
 .variation-button,
 .mode-button {
   align-items: center;
@@ -28,52 +21,35 @@
   width: 70px;
   height: 70px;
   border: 2px solid #4caf50;
-  /* Green border */
   border-radius: 50%;
-  /* Circular buttons */
   background-color: #ffffff;
-  /* White background */
   color: #4caf50;
-  /* Green text */
   font-size: 1.5rem;
-  /* Icon size */
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
-  /* Smooth hover and active effects */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow */
 }
 
 .variation-button.active,
 .mode-button.active {
   background-color: #4caf50;
-  /* Green background */
   color: #ffffff;
-  /* White text */
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-  /* Slightly stronger shadow */
   transform: scale(1.1);
-  /* Slight zoom effect */
 }
 
 .variation-button:hover,
 .mode-button:hover {
   background-color: #45a049;
-  /* Darker green background */
   color: #ffffff;
-  /* White text */
   transform: scale(1.05);
-  /* Slight zoom effect */
 }
 
-/* Active (pressed) effect */
 .mode-button:active,
 .variation-button:active {
   background-color: #3e8e41;
-  /* Even darker green background */
   transform: scale(0.95);
-  /* Slight shrink effect */
 }
 
 .leaderboard-grid {
@@ -94,18 +70,14 @@
 
 .right-column h2 {
   position: sticky;
-  /* Make the header stick to the top */
   top: 0;
-  /* Stick to the top of the container */
   z-index: 1;
-  /* Ensure it stays above the rows */
 }
 
-/* Style for the leaderboard container with a border and title */
 .leaderboard-container {
-  max-width: 600px; /* Fixed width for larger screens */
-  width: 90%; /* Use 90% of the screen width for smaller screens */
-  margin: 0 auto; /* Center the leaderboard */
+  max-width: 600px;
+  width: 90%;
+  margin: 0 auto;
   padding: 20px;
   border: 2px solid #4caf50;
   border-radius: 10px;
@@ -128,11 +100,9 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* Style for the leaderboard table */
 .leaderboard-table {
   width: 100%;
   border-collapse: collapse;
-  /* Remove gaps between cells */
   text-align: left;
 }
 
@@ -144,37 +114,30 @@
 
 .leaderboard-table tr:first-child td {
   border-top: none;
-  /* Remove top border for the first row */
 }
 
-/* Medal styles for the top 3 players */
 .leaderboard-table .gold-medal::before {
   content: "🥇";
-  /* Gold medal emoji */
   margin-right: 5px;
   text-align: right;
 }
 
 .leaderboard-table .silver-medal::before {
   content: "🥈";
-  /* Silver medal emoji */
   margin-right: 5px;
   text-align: right;
 }
 
 .leaderboard-table .bronze-medal::before {
   content: "🥉";
-  /* Bronze medal emoji */
   margin-right: 5px;
   text-align: right;
 }
 
-/* Highlight the current player */
 .current-player {
   background-color: #ccc;
 }
 
-/* Circle initials before every player */
 .player-initial {
   display: inline-block;
   width: 30px;
@@ -182,9 +145,7 @@
   line-height: 30px;
   border-radius: 50%;
   background-color: #4caf50;
-  /* Green background */
   color: #ffffff;
-  /* White text */
   text-align: center;
   font-weight: bold;
   margin-right: 10px;
@@ -195,7 +156,6 @@
   font-size: 18px;
   font-weight: bold;
   color: #4caf50;
-  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); */
   text-align: center;
   margin: 10px 0;
   font-family: 'Poppins', sans-serif;
@@ -207,9 +167,7 @@
 
 .brain-train-image {
   width: 150px;
-  /* Adjust the size of the image */
   height: auto;
-  /* Maintain aspect ratio */
   display: block;
   margin: 0 auto 0px;
 }
@@ -218,7 +176,6 @@
   font-weight: bold;
   margin-right: 10px;
   color: #555;
-  /* Subtle gray color */
   font-family: 'Poppins', sans-serif;
 }
 

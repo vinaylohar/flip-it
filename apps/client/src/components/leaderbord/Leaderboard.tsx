@@ -5,7 +5,7 @@ import type { AppDispatch } from '../../store/store';
 import { fetchLeaderboardThunk } from '../../services/apiService';
 import { GAME_VARIATIONS, GameVariationValues } from '../../config/constants';
 import { selectLeaderboardData } from '../../selectors/leaderboardSelector';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { Utils } from '../../config/utils';
 const Leaderboard: React.FC = () => {
   const [userName, setUserName] = useState<string | null>(null);
@@ -14,7 +14,6 @@ const Leaderboard: React.FC = () => {
 
   const leaderboard = useSelector(selectLeaderboardData);
   const dispatch = useDispatch<AppDispatch>();
-  const navigate = useNavigate();
 
   useEffect(() => {
 
@@ -23,7 +22,7 @@ const Leaderboard: React.FC = () => {
     // Fetch leaderboard data
     dispatch(fetchLeaderboardThunk(selectedVariation));
 
-  }, [selectedVariation]);
+  }, [dispatch, selectedVariation]);
 
   const handleVariationChange = (variation: GameVariationValues) => {
     setSearchParams({ variation }); // Update the URL with the selected variation

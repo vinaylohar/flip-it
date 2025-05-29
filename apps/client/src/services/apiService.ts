@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import apiClient from '../services/apiClient';
-import type { GameVariation, GameVariationValues } from '../config/constants';
+import type { GameVariationValues } from '../config/constants';
 
 export interface LeaderboardEntry {
   username: string;
