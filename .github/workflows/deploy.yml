@@ -26,9 +26,11 @@ jobs:
           rm -rf node_modules package-lock.json
           npm install --no-optional --legacy-peer-deps
 
-      - name: Build project
-        working-directory: apps/client
-        run: npm run build --workspace=apps/client
+      - name: Build client
+        run: |
+          cd apps/client
+          npm install
+          npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
