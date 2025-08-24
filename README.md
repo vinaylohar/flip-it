@@ -1,0 +1,50 @@
+## Setup
+
+Fork this project and clone it to your computer to start editing.
+
+The project structure is as follows:
+
+```text
+memory-game-task/
+├── package.json           # Root workspace config
+├── docs/                  # Documentation for the project
+│   └── README.md          # Contains designs for guidance
+├── apps/
+│   ├── client/            # React frontend
+│   │   ├── package.json
+│   │   └── src/
+│   └── server/            # Node + Express server
+│       ├── package.json
+│       └── src/
+```
+
+## Install
+
+In the root of the project run the install command.
+
+```shell
+# Run in root of project
+npm install
+```
+
+## Run
+
+### Running the Server
+
+The server should be run before the client.
+
+```shell
+# Run in root of project
+npm run server
+```
+
+> ✅ The server will start on [http://localhost:3000](http://localhost:3000)
+
+### Server API Routes
+
+- **GET** /api/high-scores
+  - Content-Type: application/json
+- **POST** /api/high-scores
+  - Content-Type: application/json
+  - Body: See example request body
+
