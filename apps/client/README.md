@@ -16,6 +16,7 @@ This is the frontend client for the Memory Game Task. It is built using **React*
 - [State Management](#state-management)
 - [Game Variations](#game-variations)
 - [Authentication](#authentication)
+- [Hosting](#hosting)
 - [Future Plans](#future-plans)
 - [Contributors](#contributors)
 
@@ -125,6 +126,15 @@ State is organized into slices, each responsible for a specific feature. Actions
 ## Authentication
 
 The application uses **Firebase Authentication** to manage user accounts. Users can sign up, log in, and securely access their game data.
+
+---
+
+## Hosting
+
+The static version of this application is hosted on **GitHub Pages** and can be accessed at:  
+[https://vinaylohar.github.io/flip-it/](https://vinaylohar.github.io/flip-it/)
+
+For instructions on how to start the client locally, refer to the [Run](#run) section above.
 
 ---
 

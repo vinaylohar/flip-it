@@ -40,6 +40,10 @@ npm run server
 
 > ✅ The server will start on [http://localhost:3000](http://localhost:3000)
 
+### Running the Client
+
+Instructions for starting the client can be found in `apps/client/README.md`.
+
 ### Server API Routes
 
 - **GET** /api/high-scores
@@ -47,4 +51,8 @@ npm run server
 - **POST** /api/high-scores
   - Content-Type: application/json
   - Body: See example request body
+
+## Hosted Version
+
+A static version of the application is hosted on GitHub Pages: [https://vinaylohar.github.io/flip-it/](https://vinaylohar.github.io/flip-it/)
 
