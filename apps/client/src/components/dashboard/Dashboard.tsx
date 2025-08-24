@@ -39,7 +39,7 @@ const Dashboard: React.FC = () => {
       </button>
       <div className="game-options">
         <img
-          src="../public/brain_train.png"
+          src="../flip-it/brain_train.png"
           className="brain-train-image"
         />
         <div className="grouped-buttons">
