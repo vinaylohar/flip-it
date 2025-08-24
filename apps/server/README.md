@@ -1,6 +1,6 @@
 # Memory Game Server
 
-This is the backend server for the Memory Game Task. It is built using **Node.js** and **Express** and provides APIs for managing high scores and game-related data.
+This is the backend server for the Memory Game. It is built using **Node.js** and **Express** and provides APIs for managing high scores and game-related data.
 
 ---
 

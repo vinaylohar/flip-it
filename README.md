@@ -1,11 +1,11 @@
 ## Setup
 
-Fork this project and clone it to your computer to start editing.
+This is the repo for the Memory Game.
 
 The project structure is as follows:
 
 ```text
-memory-game-task/
+memory-game/
 ├── package.json           # Root workspace config
 ├── docs/                  # Documentation for the project
 │   └── README.md          # Contains designs for guidance

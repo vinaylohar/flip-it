@@ -1,6 +1,6 @@
 # Memory Game Client
 
-This is the frontend client for the Memory Game Task. It is built using **React**, **TypeScript**, and **Vite** for a fast and modern development experience.
+This is the frontend client for the Memory Game. It is built using **React**, **TypeScript**, and **Vite** for a fast and modern development experience.
 
 ---
 
