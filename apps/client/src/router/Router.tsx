@@ -9,7 +9,7 @@ import Multiplayer from '../components/multiplayer/Multiplayer';
 
 function App() {
   return (
-    <Router basename="/flip-it">
+    <Router basename="/flip-it/">
       <div className="App">
         <Routes>
           <Route path="" element={<Login />} />
