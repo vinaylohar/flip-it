@@ -61,7 +61,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
       <div className="header-content">
         <div onClick={handleBackToDashboard} className="header-logo-container">
           <img
-            src="/logo.png"
+            src="/flip-it/logo.png"
             alt="Logo"
             className="header-logo"
           />

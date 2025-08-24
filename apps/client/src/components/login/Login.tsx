@@ -44,7 +44,7 @@ const Login: React.FC = () => {
   return (
     <div className="hero-background">
       <div className="content">
-        <img className="logo-img" src="/logo.png" alt="Logo" />
+        <img className="logo-img" src="/flip-it/logo.png" alt="Logo" />
         <h1 className="animated-title">
           {title.split('').map((char, index) => (
             <span
