@@ -1,0 +1,33 @@
+name: Deploy React App to GitHub Pages
+
+on:
+  push:
+    tags:
+      - "v*"   # 🚀 Only runs when you push a tag like v1.0.0, v2.0.0 etc.
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: apps/client
+        run: npm install
+
+      - name: Build project
+        working-directory: apps/client
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: apps/client/dist
